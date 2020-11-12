@@ -5,12 +5,13 @@ phases:
     commands:
       - echo Installing dependencies...
       - npm install
+      - npm i -g pm2
   build:
     commands:
       - echo Building files
       - npm run build
       - rm -rf node_modules
-      - npm start
+      - pm2-runtime start ecosystem.config.js
 artifacts:
   files:
     - '**/*'
